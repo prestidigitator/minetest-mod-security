@@ -95,30 +95,6 @@ sandboxEnv.table     = std.table;
 
 
 -- Virtual Filesystem
---
--- /
--- |- tmp/
--- |- world/
--- |- mods/
---    |- mod1/
---    |- mod2/
---    |- mod3/
---    .
---    .
---
--- Note that the directory for the security mod is specifically NOT a part of
--- this virtual filesystem.  All other mod directories are.
---
--- The special 'tmp' directory only holds files with names reserved by
--- os.tmpname().  These reserved names are only tracked while the the server
--- is running, so they cannot be referenced in future incarnations even if they
--- are not removed explicitly.
---
--- Escape characters are assumed to be backslash ('\') and percent ('%').
--- These characters are NOT ALLOWED AT ALL in filenames.  Backslashes are
--- converted to forward slashes ('/'), while percent results in an invalid
--- path which will cause all I/O functions to fail.
---
 
 local toRealPath;
 local wrappedOsTmpName;
@@ -623,7 +599,7 @@ sandboxEnv.module = wrappedModule;
 sandboxEnv.require = wrappedRequire;
 
 sandboxEnv.package.config  = std.package.config;
-sandboxEnv.package.cpath   = "";
+sandboxEnv.package.cpath   = nil;
 sandboxEnv.package.loaded  = {};
 sandboxEnv.package.loaders = { sandboxSearcher, builinSearcher };
 sandboxEnv.package.loadlib = nil;  -- Removed completely

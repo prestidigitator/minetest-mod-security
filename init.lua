@@ -21,22 +21,6 @@ local WORLD_PATH = minetest.get_worldpath();
 local mtGetModPath = minetest.get_modpath;
 local std = _G;
 
----- REVISIT: WON'T WORK
--- This mod MUST be the first one loaded (including the game's "default" mod)
--- local mods = std.minetest.get_modnames();
--- if #mods > 1 or (#mods == 1 and mods[1] ~= MOD_NAME) then
---    local message =
---       MOD_NAME..": ERROR!  Other mods loaded before security mod.  This is "..
---       "a CRITICAL SECURITY PROBLEM and might result in system corruption.  "..
---       "Make sure to add '"..MOD_NAME.."' to all other mods' 'depends.txt' "..
---       "files.";
---
---    std.minetest.log('error', message);
---    std.print(message);
---    std.os.exit();
---    std.error(message);  -- Should never reach here, but just in case
--- end;
-
 -- Create (local!) environments and namespaces
 
 local sandboxEnv = {};
@@ -63,6 +47,6 @@ security.callModChunk = callModChunk;
 callModChunk("sandboxLuaStdlib-" ..  LUA_VERSION);
 callModChunk("sandboxMinetestApi");
 
--- Final installation of the sandbox environment
+-- Installation the sandbox environment
 
 std.setfenv(0, security.sandboxEnv);
