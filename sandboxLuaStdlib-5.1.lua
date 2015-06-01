@@ -295,7 +295,7 @@ end;
 security.toRealPath = toRealPath;
 
 sandboxEnv.io.close   = std.io.close;
-sandboxEnv.io.flush   = std.io.close;
+sandboxEnv.io.flush   = std.io.flush;
 sandboxEnv.io.input   = wrappedIoInput;
 sandboxEnv.io.lines   = wrappedIoLines;
 sandboxEnv.io.open    = wrappedIoOpen;
