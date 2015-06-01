@@ -106,6 +106,11 @@ Version 1.0
 * First working version, tested against luacmd, minetest_game, moretrees, and
   the plantslife modpack.
 
+Version 1.1
+
+* Whitelisted some extra LuaJIT and Minetest utility functions.
+* Fixed io.flush typo.
+
 Copyright and Licensing
 -----------------------
 
