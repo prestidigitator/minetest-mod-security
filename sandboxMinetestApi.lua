@@ -104,4 +104,7 @@ sandboxEnv.minetest.get_modpath      = wrappedGetModPath;
 sandboxEnv.minetest.create_schematic = wrappedCreateSchematic;
 sandboxEnv.minetest.place_schematic  = wrappedPlaceSchematic;
 
-sandboxEnv.Settings = wrappedSettings;
+sandboxEnv.string.split = std.string.split;
+sandboxEnv.string.trim  = std.string.trim;
+sandboxEnv.table.copy   = std.table.copy;
+sandboxEnv.Settings     = wrappedSettings;
